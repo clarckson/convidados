@@ -5,8 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class ConvidadosDatabase(
-    context: Context,
-    version: Int) : SQLiteOpenHelper(context, NAME, null, VERSION) {
+    context: Context) : SQLiteOpenHelper(context, NAME, null, VERSION) {
 
         companion object {
             private const val NAME = "convidadosDB"
@@ -14,10 +13,14 @@ class ConvidadosDatabase(
         }
 
     override fun onCreate(db: SQLiteDatabase) {
-        TODO("Not yet implemented")
+        db.execSQL("create table Convidados (" +
+                "id integer primary key autoincrement, "+
+                "name text, " +
+                "presenca integer); ")
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+
     }
 }
